@@ -1,36 +1,27 @@
-import React, {useState} from "react";
+import React from "react";
+import FormularioTarea from "./components/tarea/formularioTarea";
+import FormularioUsuario from "./components/usuario/formularioUsuario";
+import ListadoTareas from "./components/tarea/listadoTareas";
+import ListadoUsuarios from "./components/usuario/listadoUsuarios";
 
 class App extends React.Component {
-
-    constructor (props) {
-        super(props)
-        this.state = {
-            nuevaTarea: '',
-            count: 0
-        }
-    }
-
-    enviar (e)  {
-        e.preventDefault()
-
-        console.log('Enviado')
-    }
 
     render() {
         const componente = (
             <div>
-                <h1>Componente</h1>
-                <form onSubmit={this.enviar}>
-                    <span>Tarea: {this.state.nuevaTarea}</span>
-                    <br />
-                    <input type="text" onChange={(e) => this.setState({ nuevaTarea: e.target.value})} />
-                    <button type="submit">Enviar</button>
-                </form>
-                <div>
-                    <p>You clicked {this.state.count} times</p>
-                    <button onClick={() => this.setState({ count: this.state.count + 1 })}>
-                        Click me
-                    </button>
+                <div className="row">
+                    <div className="col-md-3">
+                        <FormularioTarea></FormularioTarea>
+                    </div>
+                    <div className="col-md-3">
+                        <ListadoTareas></ListadoTareas>
+                    </div>
+                    <div className="col-md-3">
+                        <FormularioUsuario></FormularioUsuario>
+                    </div>
+                    <div className="col-md-3">
+                        <ListadoUsuarios></ListadoUsuarios>
+                    </div>
                 </div>
             </div>
         )
